@@ -23,13 +23,31 @@ function deleteLast() {
 }
 
 function operate(operator) {
-    displayValue += ` ${operator} `;
+    switch(operator) {
+        case 'π':
+            displayValue += Math.PI;
+            break;
+        case 'e':
+            displayValue += Math.E;
+            break;
+        default:
+            displayValue += ` ${operator} `;
+    }
     updateDisplay();
 }
 
 function calculate() {
     try {
-        const result = eval(displayValue.replace('÷', '/').replace('×', '*'));
+        const replacedDisplayValue = displayValue.replace('÷', '/').replace('×', '*')
+            .replace('sin', 'Math.sin')
+            .replace('cos', 'Math.cos')
+            .replace('tan', 'Math.tan')
+            .replace('sqrt', 'Math.sqrt')
+            .replace('pow', 'Math.pow')
+            .replace('log', 'Math.log10')
+            .replace('exp', 'Math.exp')
+            .replace('ln', 'Math.log');
+        const result = eval(replacedDisplayValue);
         displayValue = result;
         updateDisplay();
     } catch {
