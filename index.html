@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Científica Mejorada</title>
+    <title>Calculadora Científica</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,32 +14,32 @@
             <button onclick="appendNumber(7)">7</button>
             <button onclick="appendNumber(8)">8</button>
             <button onclick="appendNumber(9)">9</button>
-            <button onclick="operate('÷')">÷</button>
+            <button onclick="appendOperator('÷')">÷</button>
             <button onclick="appendNumber(4)">4</button>
             <button onclick="appendNumber(5)">5</button>
             <button onclick="appendNumber(6)">6</button>
-            <button onclick="operate('×')">×</button>
+            <button onclick="appendOperator('×')">×</button>
             <button onclick="appendNumber(1)">1</button>
             <button onclick="appendNumber(2)">2</button>
             <button onclick="appendNumber(3)">3</button>
-            <button onclick="operate('-')">-</button>
+            <button onclick="appendOperator('-')">-</button>
             <button onclick="appendNumber(0)">0</button>
             <button onclick="appendDecimal()">.</button>
             <button onclick="calculate()">=</button>
-            <button onclick="operate('+')">+</button>
+            <button onclick="appendOperator('+')">+</button>
             <!-- Botones de operaciones científicas -->
             <button onclick="clearDisplay()">C</button>
             <button onclick="deleteLast()">DEL</button>
-            <button onclick="operate('sin')">sin</button>
-            <button onclick="operate('cos')">cos</button>
-            <button onclick="operate('tan')">tan</button>
-            <button onclick="operate('sqrt')">√</button>
-            <button onclick="operate('pow')">x^y</button>
-            <button onclick="operate('log')">log</button>
-            <button onclick="operate('exp')">exp</button>
-            <button onclick="operate('ln')">ln</button>
-            <button onclick="operate('pi')">π</button>
-            <button onclick="operate('e')">e</button>
+            <button onclick="appendFunction('Math.sin')">sin</button>
+            <button onclick="appendFunction('Math.cos')">cos</button>
+            <button onclick="appendFunction('Math.tan')">tan</button>
+            <button onclick="appendFunction('Math.sqrt')">√</button>
+            <button onclick="appendOperator('**')">x^y</button>
+            <button onclick="appendFunction('Math.log10')">log</button>
+            <button onclick="appendFunction('Math.exp')">exp</button>
+            <button onclick="appendFunction('Math.log')">ln</button>
+            <button onclick="appendConstant('Math.PI')">π</button>
+            <button onclick="appendConstant('Math.E')">e</button>
         </div>
     </div>
     <script src="script.js"></script>

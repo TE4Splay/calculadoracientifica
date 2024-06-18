@@ -22,35 +22,27 @@ function deleteLast() {
     updateDisplay();
 }
 
-function operate(operator) {
-    switch(operator) {
-        case 'π':
-            displayValue += Math.PI;
-            break;
-        case 'e':
-            displayValue += Math.E;
-            break;
-        default:
-            displayValue += ` ${operator} `;
-    }
+function appendOperator(operator) {
+    displayValue += ` ${operator} `;
+    updateDisplay();
+}
+
+function appendFunction(func) {
+    displayValue += `${func}(`;
+    updateDisplay();
+}
+
+function appendConstant(constant) {
+    displayValue += constant;
     updateDisplay();
 }
 
 function calculate() {
     try {
-        const replacedDisplayValue = displayValue.replace('÷', '/').replace('×', '*')
-            .replace('sin', 'Math.sin')
-            .replace('cos', 'Math.cos')
-            .replace('tan', 'Math.tan')
-            .replace('sqrt', 'Math.sqrt')
-            .replace('pow', 'Math.pow')
-            .replace('log', 'Math.log10')
-            .replace('exp', 'Math.exp')
-            .replace('ln', 'Math.log');
-        const result = eval(replacedDisplayValue);
+        const result = eval(displayValue.replace('÷', '/').replace('×', '*'));
         displayValue = result;
         updateDisplay();
-    } catch {
+    } catch (error) {
         displayValue = 'Error';
         updateDisplay();
     }
