@@ -1,6 +1,7 @@
 import tkinter as tk
 from math import *
 
+class Calculadora:
     def __init__(self, root):
         self.root = root
         self.root.title("Calculadora Científica")
