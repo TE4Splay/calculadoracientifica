@@ -1,39 +1,71 @@
-function appendCharacter(char) {
-    const display = document.getElementById('display');
-    const currentValue = display.value;
-    if (char === 'TE4splay!') {
-        display.value = "Error 404, UPM not found";
-        return;
-    }
-    display.value += char;
+body {
+    background-color: #bfbfbf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-function clearDisplay() {
-    document.getElementById('display').value = '';
+.calculator {
+    background-color: #505050;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
 }
 
-function deleteLastCharacter() {
-    const display = document.getElementById('display');
-    display.value = display.value.slice(0, -1);
+.display {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: right;
+    background-color: #303030;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
-function moveCursor(direction) {
-    const display = document.getElementById('display');
-    const pos = display.selectionStart;
-    display.selectionStart = display.selectionEnd = pos + direction;
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
 }
 
-function calculateResult() {
-    const display = document.getElementById('display');
-    try {
-        let equation = display.value;
-        equation = equation.replace('e**', 'Math.exp(');
-        equation = equation.replace('sqrt(', 'Math.sqrt(');
-        equation = equation.replace('log(', 'Math.log(');
-        equation = equation.replace('%', '/100');
-        const result = eval(equation);
-        display.value = result;
-    } catch (error) {
-        display.value = 'Error';
-    }
+.btn {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c0c0c0;
+}
+
+.btn:active {
+    background-color: #a9a9a9;
+}
+
+.btn.number {
+    background-color: #f0f0f0;
+}
+
+.btn.operator {
+    background-color: #f0c040;
+}
+
+.btn.function {
+    background-color: #80c0ff;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 2;
 }
